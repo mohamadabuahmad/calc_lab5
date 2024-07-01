@@ -1,0 +1,23 @@
+/* Existing Tailwind imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark mode styles for the calculator */
+.dark #app {
+    background-color: #1a202c; /* Dark background color */
+}
+
+.dark #monitor {
+    background-color: #2d3748; /* Darker monitor background */
+    color: #f7fafc; /* Light text color */
+}
+
+.dark .d-btn {
+    background-color: #4a5568; /* Darker button background */
+    color: #f7fafc; /* Light text color */
+}
+
+.dark .d-btn:hover {
+    background-color: #2b6cb0; /* Even darker button background on hover */
+}
