@@ -1,5 +1,6 @@
 // Global variables
 const html = document.documentElement;
+const app = document.getElementById('app');
 const mainContainer = document.getElementById('main-container');
 
 // App object to initialize and run the application
@@ -12,8 +13,8 @@ const App = {
     },
 
     addEventListeners: function() {
-        window.addEventListener('message', this.handleMessage);
-        document.addEventListener('DOMContentLoaded', this.handleDOMContentLoaded);
+        window.addEventListener('message', this.handleMessage.bind(this));
+        document.addEventListener('DOMContentLoaded', this.handleDOMContentLoaded.bind(this));
         new ResizeObserver(this.sendHeightToParent).observe(document.body);
     },
 
@@ -80,11 +81,25 @@ App.UI = {
     },
 
     renderAbout: function() {
-        app.innerHTML = '<div class="p-4 h-[200px] flex items-center justify-center">Temp for About</div>';
+        app.innerHTML = `
+            <div class="p-4">
+                <h2 class="text-2xl font-bold mb-4">About This Application</h2>
+                <p class="mb-4">This application demonstrates basic JavaScript functionalities including a calculator, an about section, and a contact section.</p>
+            </div>
+        `;
     },
 
     renderContact: function() {
-        app.innerHTML = '<div class="p-4 h-[200px] flex items-center justify-center">Temp for Contact</div>';
+        app.innerHTML = `
+            <div class="p-4">
+                <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+                <p class="mb-4">If you have any questions or feedback, please reach out to us at:</p>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Email: <a href="mailto:mohammad.abu.ahmad@e.braude.co.il" class="text-blue-600 underline">mohammad.abu.ahmad@e.braude.co.il</a></li>
+                    <li>Phone: <a href="tel:+972-5400000000" class="text-blue-600 underline">+1 (234) 567-890</a></li>
+                </ul>
+            </div>
+        `;
     },
 
     renderMenu: function() {
